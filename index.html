@@ -8,12 +8,102 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/planefavicon.png">
+    <!-- Firebase Core JavaScript Link -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+
+    <!-- Specific Firebase products we want -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <title>Plane Scheduler</title>
 </head>
 <body>
     
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center">Private Jet Schedule</h1>
+            <h3 class="text-center">A look into the schedule of the private jet companies</h3>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h5>Current Jet Schedule</h5>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Charter Name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency (min)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                    <!-- <th scope="col">Total Billed ($)</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">VICTOR</th>
+                        <td>Denver, Colorado</td>
+                        <td>235</td>
+                        <td>3</td>
+                        <td>$1/hr</td>
+                        <!-- <td>Formula Here</td> -->
+                    </tr>
+                    <tr>
+                        <th scope="row">NETJETS</th>
+                        <td>Los Angeles, California</td>
+                        <td>280</td>
+                        <td>3</td>
+                        <td>$1/hr</td>
+                        <!-- <td>Formula Here</td> -->
+                    </tr>
+                    <tr>
+                        <th scope="row">PARAMOUNT BUSINESS JETS</th>
+                        <td>New York, New York</td>
+                        <td>167</td>
+                        <td>3</td>
+                        <td>$1/hr</td>
+                        <!-- <td>Formula Here</td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+<!-- User input -->
 
 
+        <!-- Make Your Bid -->
+        <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <h5>Add Jet</h5>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="form-group row">
+                      <label for="bidder-name">Jet Name</label>
+                      <input class="form-control" id="name-input" type="text">
+                    </div>
+                    <div class="form-group row">
+                      <label for="bidder-price">Destination</label>
+                      <input class="form-control" id="employee-role" type="text">
+                    </div>
+                  </form>
+                  <form>
+                        <div class="form-group row">
+                          <label for="bidder-name">First Jet Time (HH:mm military time)</label>
+                          <input class="form-control" id="start-date" type="text">
+                        </div>
+                        <div class="form-group row">
+                          <label for="bidder-price">Frequency (min)</label>
+                          <input class="form-control" id="monthly-rate" type="text">
+                        </div>
+                        <button class="btn btn-primary" id="submit-info" type="submit">Submit</button>
+                      </form>
+                </div>
+              </div>
+            </div>
+      
+          </div>
 
 
 
