@@ -21,6 +21,8 @@ var firebaseConfig = {
     $("#submit-info").on("click", function() {
         event.preventDefault();
 
+        
+
 
         let company_name = $("#name-input").val().trim();
         let destination_location = $("#destination").val().trim();
@@ -44,7 +46,23 @@ var firebaseConfig = {
 
     });
 
-    // database.ref().on("child_added", function(snapshot) {
+     database.ref().on("child_added", function(snapshot) {
+
+        let sv = snapshot.val();
+
+
+        $(".name").text(sv.name);
+        $(".destination").text(sv.destination);
+        $(".freq").text(sv.rate);
+        $(".next-arrival").text();
+        $(".mins-away").text(sv.time);
+
+     }, function (errorObjects) {
+         console.log("Errors handled: " + errorObjects.code);
+     });
+         
+     
+
     //     let name = snapshot.val().name;
     //     let destination = snapshot.val().destination;
     //     let time = snapshot.val().time;
@@ -52,4 +70,4 @@ var firebaseConfig = {
     // });
 
 
-
+     
