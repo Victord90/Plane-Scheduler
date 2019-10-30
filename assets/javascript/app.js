@@ -51,23 +51,40 @@ var firebaseConfig = {
         let sv = snapshot.val();
 
 
-        $(".name").text(sv.name);
-        $(".destination").text(sv.destination);
-        $(".freq").text(sv.rate);
-        $(".next-arrival").text();
-        $(".mins-away").text(sv.time);
+        let convertedT = moment(sv.time, "HH:mm").subtract(1, "years");
+
+        let currentT = moment();
+
+        let diffT = moment().diff(moment(convertedT), "minutes");
+
+        let remainderT = diffT % sv.rate;
+
+        let minsAway = sv.rate - remainderT;
+
+        let nextJet = moment().add(minsAway, "minutes");
+
+        let newJet = moment(nextJet).format("hh:mm A");
+
+        let newRow = $("<tr>");
+        let jet = $("<td>").text(sv.name);
+        let jetDestination = $("<td>").text(sv.destination);
+        let freq = $("<td>"). text(sv.rate);
+        let minutesAway = $("<td>").text(minsAway);
+        let nxtJet = $("<td>").text(newJet)
+
+        newRow.append(jet);
+        newRow.append(jetDestination);
+        newRow.append(freq);
+        newRow.append(nxtJet);
+        newRow.append(minutesAway);
+
+        newRow.appendTo(".user-input")
 
      }, function (errorObjects) {
          console.log("Errors handled: " + errorObjects.code);
      });
          
      
-
-    //     let name = snapshot.val().name;
-    //     let destination = snapshot.val().destination;
-    //     let time = snapshot.val().time;
-    //     let rate = snapshot.val().rate;
-    // });
 
 
      
