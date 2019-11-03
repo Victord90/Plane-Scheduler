@@ -2,3 +2,15 @@
     background-image: url(../images/full4.jpg);
     background-size: cover;
 }
+
+#customJumbo {
+    background-color: lightgray;
+}
+
+#form {
+    margin-bottom: 5%;
+}
+
+#currentJetTable{
+    margin-bottom: 4%;
+}
